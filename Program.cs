@@ -20,6 +20,16 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+// ADDing CORS
+builder.Services.AddCors(o => {
+    o.AddPolicy("CorsPolicy",
+        builder => builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
+
 // ADDED Swagger
 builder.Services.AddSwaggerGen(c => {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -71,6 +81,9 @@ app.UseHttpsRedirection();
 
 // Static files not needed for WebApi's
 // app.UseStaticFiles();
+
+
+app.UseCors("CorsPolicy");
 
 app.UseRouting();
 
