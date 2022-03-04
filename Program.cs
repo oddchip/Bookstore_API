@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseNpgsql("PostgreSQLConnection"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,6 +28,9 @@ builder.Services.AddCors(o => {
         .AllowAnyMethod()
         .AllowAnyHeader());
 });
+
+// ADDED Automapper
+builder.Services.AddAutoMapper(typeof(Maps));
 
 
 // ADDED Swagger

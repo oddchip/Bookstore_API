@@ -16,6 +16,12 @@
     <None Remove="NLog.Extensions.Logging" />
     <None Remove="Contracts\" />
     <None Remove="Services\" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <None Remove="Bookstore\Models\" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Bookstore\Mappings\" />
+    <None Remove="Bookstore\DTOs\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -31,11 +37,17 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.7.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.3" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Bookstore\" />
     <Folder Include="Contracts\" />
     <Folder Include="Services\" />
+    <Folder Include="Bookstore\Models\" />
+    <Folder Include="Bookstore\Mappings\" />
+    <Folder Include="Bookstore\DTOs\" />
   </ItemGroup>
 </Project>
